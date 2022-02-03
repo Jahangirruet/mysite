@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!--login page-->>
         <meta charset="utf-8">
         <title>E Store - eCommerce HTML Template</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -137,46 +138,21 @@
                     <div class="col-lg-6">    
                         <div class="register-form">
                             <div class="row">
-                                <div class="col-md-6">
-                                    <label>First Name</label>
-                                    <input class="form-control" type="text" placeholder="First Name">
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Last Name"</label>
-                                    <input class="form-control" type="text" placeholder="Last Name">
-                                </div>
-                                <div class="col-md-6">
-                                    <label>E-mail</label>
-                                    <input class="form-control" type="text" placeholder="E-mail">
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Mobile No</label>
-                                    <input class="form-control" type="text" placeholder="Mobile No">
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Password</label>
-                                    <input class="form-control" type="text" placeholder="Password">
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Retype Password</label>
-                                    <input class="form-control" type="text" placeholder="Password">
-                                </div>
-                                <div class="col-md-12">
-                                    <button class="btn">Submit</button>
-                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="login-form">
+                            <form action="login" method="post">
+                                {% csrf_token %}
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>E-mail / Username</label>
-                                    <input class="form-control" type="text" placeholder="E-mail / Username">
+                                    <label>Username</label>
+                                    <input class="form-control" name="username" type="text" placeholder="Username">
                                 </div>
                                 <div class="col-md-6">
                                     <label>Password</label>
-                                    <input class="form-control" type="text" placeholder="Password">
+                                    <input class="form-control" name="password" type="password" placeholder="Password">
                                 </div>
                                 <div class="col-md-12">
                                     <div class="custom-control custom-checkbox">
@@ -184,10 +160,11 @@
                                         <label class="custom-control-label" for="newaccount">Keep me signed in</label>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
-                                    <button class="btn">Submit</button>
-                                </div>
+                                
+                                    <input type="submit" name="submit">
+                                
                             </div>
+                        </form>
                         </div>
                     </div>
                 </div>
