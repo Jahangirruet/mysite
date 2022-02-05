@@ -34,8 +34,8 @@ urlpatterns = [
     path('checkout/',views.checkout,name='checkout'),
     path('contact/',views.contact,name='contact'),
     path('register/', include('accounts.urls')),
-    path('login/', include('accounts.urls')),
-    path('logout/', include('accounts.urls')),
+    path('login/', include('login.urls')),
+    path('logout/', include('login.urls')),
     
 
     path('admin/', admin.site.urls),
