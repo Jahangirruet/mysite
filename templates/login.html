@@ -143,7 +143,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="login-form">
-                            <form action="login" method="post">
+                            <form action="" method="post">
                                 {% csrf_token %}
                             <div class="row">
                                 <div class="col-md-6">
@@ -163,7 +163,13 @@
                                 
                                     <input type="submit" name="submit">
                                 
-                            </div>
+                                </div>
+                                
+                                <div>
+                                    {% for message in messages %}
+                                    <h6> {{message}} </h6>
+                                     {%endfor%}
+                                </div>
                         </form>
                         </div>
                     </div>

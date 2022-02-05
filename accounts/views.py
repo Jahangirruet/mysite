@@ -19,21 +19,21 @@ def register(request):
         email  = request.POST['email']
 
         if password1==password2:
-            user =  User.objects.create_user(username=username,password=password1,email=email,first_name=first_name,last_name=last_name)
-            user.save();
-            print("user created")
-            #return render(request,'index.html') 
-            return redirect('/')            
+            if User.objects.filter(username=username).exists():
+                messages.info(request,'Username Taken')
+                return render(request,'signup.html') 
+            elif User.objects.filter(email=email).exists():
+                messages.info(request,'Email taken')
+                return render(request,'signup.html')
+            else:
+                user =  User.objects.create_user(username=username,password=password1,email=email,first_name=first_name,last_name=last_name)
+                user.save();
+                messages.info(request,"user created")
+                return render(request,'signup.html') 
+                #return redirect('/')            
         else:
-            print('password not matching')        
-            #return render(request,'signup.html')
+            messages.info(request,'password not matching......')        
+            return render(request,'signup.html')
     else :    
-        return render(request,'signup.html')    
-      
+        return render(request,'signup.html')      
 
-
-
-
-def logout(request):
-    auth.logout(request)
-    return redirect('/')

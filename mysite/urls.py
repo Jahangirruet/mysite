@@ -35,7 +35,7 @@ urlpatterns = [
     path('contact/',views.contact,name='contact'),
     path('register/', include('accounts.urls')),
     path('login/', include('login.urls')),
-    path('logout/', include('login.urls')),
+    path('logout/', include('logout.urls')),
     
 
     path('admin/', admin.site.urls),
