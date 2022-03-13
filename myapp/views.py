@@ -37,30 +37,3 @@ def checkout(request):
 
 def contact(request):
     return render(request,'contact.html')
-
-def login(request):
-    return render(request, 'login.html')
-
-
-def signup(request):
-    if request.method == 'POST':
-        first_name = request.POST['first_name']
-        last_name  = request.POST['last_name']
-        usernmame  = request.POST['username']
-        password1 = request.POST['password1']
-        password2 = request.POST['password2']
-        email  = request.POST['email']
-
-        if password1==password2:
-            user = User.objects.create_user(usernmame=usernmame,password=password1,first_name=first_name,last_name=last_name,email=email)
-            user.save();
-            print("user created")
-            return render(request,'signup.html')
-        else:
-            print('password not matching')        
-            return redirect('/')
-    else :    
-       return render(request, 'signup.html')
-
-def MyAccount(request):
-    return render(request, 'my-account.html')

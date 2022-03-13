@@ -18,26 +18,25 @@ from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
 from myapp import views
-#from accounts import urls
+#from accounts import views
 
 
 urlpatterns = [
-    #path('',include('myapp.urls')),
-    path('',views.index,name='index'),    
-   path('product_list/',views.product_list,name='product_list'),
-   path('product_detail/',views.product_detail,name='product_detail'),
-   path('login/',views.login,name='login'),
-   # path('my-account/',views.my-account,name="my-account"),
-   path('my-account/',views.MyAccount,name='MyAccount'),
+    path('',include('myapp.urls')),
+    #path('',views.index,name='index'),    
+    path('product_list/',views.product_list,name='product_list'),
+    path('product_detail/',views.product_detail,name='product_detail'),
+    #path('login/',views.login,name='login'),
+    # path('my-account/',views.my-account,name="my-account"),
+   # path('my-account/',views.MyAccount,name='MyAccount'),
     path('wishlist/',views.wishlist,name='wishlist'),
     path('cart/',views.cart,name='cart'),
     path('checkout/',views.checkout,name='checkout'),
     path('contact/',views.contact,name='contact'),
-
-    #path('login/',include('accounts.urls')),
-    path('signup/',views.signup,name='signup'),
-    #path('signup/', views.signup, name='signup'),
-    #path('login/', views.login, name='login'),
+    path('register/', include('accounts.urls')),
+    path('login/', include('login.urls')),
+    path('logout/', include('logout.urls')),
+    
 
     path('admin/', admin.site.urls),
 ]

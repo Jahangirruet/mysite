@@ -131,7 +131,7 @@
         <!-- Breadcrumb End -->
         
         <!-- Login Start -->
-        <form action="signup" method="post">
+        <form action="" method="post">
             {% csrf_token %}
         <div class="login">
             <div class="container-fluid">
@@ -152,8 +152,8 @@
                                     <input class="form-control" name="email"  type="text" placeholder="E-mail">
                                 </div>
                                 <div class="col-md-6">
-                                    <label>Mobile No</label>
-                                    <input class="form-control" type="text" placeholder="Mobile No">
+                                    <label>User Name</label>
+                                    <input class="form-control" name="username"  type="text" placeholder="username">
                                 </div>
                                 <div class="col-md-6">
                                     <label>Password</label>
@@ -166,6 +166,11 @@
                                 
                                     <input type="submit">
                                 
+                            </div>
+                            <div>
+                                {% for message in messages %}
+                                <h6> {{message}} </h6>
+                                 {%endfor%}
                             </div>
                         </div>
                     </div>
