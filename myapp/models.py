@@ -4,7 +4,7 @@ from django.db import models
 class ProductDetails(models.Model):
     name = models.CharField(max_length=100)
     price = models.IntegerField()
-    image = models.ImageField()
+    image = models.ImageField(upload_to="")
     size =  models.CharField(max_length=100)
     color = models.CharField(max_length=100)
     discount = models.IntegerField()
